@@ -42,8 +42,8 @@ class Migemo:
 
     def query( self, q ):
 
-        p = self.dll.migemo_query( ctypes.c_void_p(self.handle), q.encode("utf-8") )
-        s = ctypes.c_char_p(p).value.decode("utf-8")
+        p = self.dll.migemo_query( ctypes.c_void_p(self.handle), q.encode("cp932") )
+        s = ctypes.c_char_p(p).value.decode("cp932")
         self.dll.migemo_release( ctypes.c_void_p(self.handle), ctypes.c_void_p(p) )
         return s
 
